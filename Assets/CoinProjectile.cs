@@ -23,10 +23,6 @@ public class CoinProjectile : MonoBehaviour
         
         float randomRadius = _minRadius + UnityEngine.Random.value * (_maxRadius - _minRadius);
 
-        if (randomRadius < _minRadius)
-        {
-            randomRadius = _minRadius;
-        }
         float randomAngle = UnityEngine.Random.value * 360f;
 
         float x = transform.position.x + (float)(randomRadius * Math.Sin(randomAngle));
