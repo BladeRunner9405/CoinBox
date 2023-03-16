@@ -11,6 +11,7 @@ public class Clickable : MonoBehaviour
     [SerializeField] private AnimationCurve _scaleCurve;
     [SerializeField] private float _scaleTime = 0.25f;
     [SerializeField] private HitEffect _hitEffectPrefab;
+    [SerializeField] private CoinProjectile _projectilePrefab;
     [SerializeField] private Resources _resources;
     [SerializeField] private Transform _NamePosition;
 
@@ -25,9 +26,10 @@ public class Clickable : MonoBehaviour
     // Метод вызывается из Interaction при клике на объект
     public void Hit()
     {
-        HitEffect hitEffect = Instantiate(_hitEffectPrefab, transform.position, Quaternion.identity);
-        hitEffect.Init(_coinsPerClick);
-        _resources.CollectCoins(1, transform.position);
+        // HitEffect hitEffect = Instantiate(_hitEffectPrefab, transform.position, Quaternion.identity);
+        CoinProjectile projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity);
+        // hitEffect.Init(_coinsPerClick);
+        // _resources.CollectCoins(1, transform.position);
         StartCoroutine(HitAnimation());
     }
 

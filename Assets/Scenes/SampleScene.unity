@@ -4924,6 +4924,8 @@ MonoBehaviour:
   _scaleTime: 0.25
   _hitEffectPrefab: {fileID: 960427003890753841, guid: 8aef0bbe9a1b8a241890bd510be4c168,
     type: 3}
+  _projectilePrefab: {fileID: 6375871265766221002, guid: db6dffca40d35074aae9a33db0e1d6da,
+    type: 3}
   _resources: {fileID: 1420636844}
   _NamePosition: {fileID: 177978037}
 --- !u!65 &1367440548
