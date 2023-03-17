@@ -746,7 +746,7 @@ GameObject:
   - component: {fileID: 177978039}
   - component: {fileID: 177978038}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: NameCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -2059,7 +2059,7 @@ MonoBehaviour:
     m_PostInfinity: 2
     m_RotationOrder: 4
   _text: {fileID: 1893876569}
-  _animationTime: 0
+  _animationTime: 0.125
   _resources: {fileID: 1420636844}
 --- !u!1 &515007917
 GameObject:
@@ -4926,6 +4926,7 @@ MonoBehaviour:
     type: 3}
   _projectilePrefab: {fileID: 6375871265766221002, guid: db6dffca40d35074aae9a33db0e1d6da,
     type: 3}
+  _projectilesParent: {fileID: 2103295037}
   _resources: {fileID: 1420636844}
   _NamePosition: {fileID: 177978037}
 --- !u!65 &1367440548
@@ -4951,6 +4952,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1420636845}
   - component: {fileID: 1420636844}
+  - component: {fileID: 1420636846}
   m_Layer: 0
   m_Name: Resources
   m_TagString: Resources
@@ -4986,6 +4988,18 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1420636846
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1420636843}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a2b165c76d644e244a677c22e8486b6c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1486544431
 GameObject:
   m_ObjectHideFlags: 0
@@ -6937,6 +6951,37 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2091873217}
   m_CullTransparentMesh: 1
+--- !u!1 &2103295036
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 2103295037}
+  m_Layer: 0
+  m_Name: AllCoinsParent
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &2103295037
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2103295036}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 10
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &2109297383
 GameObject:
   m_ObjectHideFlags: 0
