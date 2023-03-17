@@ -8,6 +8,8 @@ using UnityEngine;
 public class CoinProjectile : MonoBehaviour
 {
     [SerializeField] private AnimationCurve _moveCurve;
+    [SerializeField] private AnimationCurve _rotationCurve;
+    [SerializeField] private float _rotationAngle;
     [SerializeField] private float _maxRadius;
     [SerializeField] private float _minRadius;
     [SerializeField] private float _maxHeight;
@@ -22,7 +24,6 @@ public class CoinProjectile : MonoBehaviour
         _resources = Singleton.Instance.Resources;
         
         float randomRadius = _minRadius + UnityEngine.Random.value * (_maxRadius - _minRadius);
-
         float randomAngle = UnityEngine.Random.value * 360f;
 
         float x = transform.position.x + (float)(randomRadius * Math.Sin(randomAngle));
@@ -46,16 +47,17 @@ public class CoinProjectile : MonoBehaviour
         Destroy(gameObject);
     }
 
-    // Перемещение монеты из точки a в b за 1 секунду
+
     private IEnumerator MoveToPoint(Vector3 a, Vector3 b)
     {
         for (float t = 0; t < 1f; t += Time.deltaTime)
         {
+            float yInterpolantRot = _rotationCurve.Evaluate(t);
+            transform.rotation = Quaternion.Euler(transform.rotation.x, Mathf.LerpUnclamped(transform.rotation.y, _rotationAngle, yInterpolantRot), transform.rotation.z);
+            
             float x = Mathf.Lerp(a.x, b.x, t);
-
             float yInterpolant = _moveCurve.Evaluate(t);
             float y = Mathf.LerpUnclamped(a.y, _maxHeight, yInterpolant);
-
             float z = Mathf.Lerp(a.z, b.z, t);
 
             Vector3 position = new Vector3(x, y, z);
@@ -63,5 +65,6 @@ public class CoinProjectile : MonoBehaviour
             yield return null;
         }
         transform.position = _targetPosition;
+        transform.rotation = Quaternion.Euler(transform.rotation.x, _rotationAngle, transform.rotation.z); ;
     }
 }
