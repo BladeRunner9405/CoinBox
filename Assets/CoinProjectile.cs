@@ -19,7 +19,7 @@ public class CoinProjectile : MonoBehaviour
     private Vector3 _targetPosition;
     private void Start()
     {
-        _resources = GameObject.FindGameObjectWithTag("Resources").GetComponent<Resources>();
+        _resources = Singleton.Instance.Resources;
         
         float randomRadius = _minRadius + UnityEngine.Random.value * (_maxRadius - _minRadius);
 
@@ -27,8 +27,9 @@ public class CoinProjectile : MonoBehaviour
 
         float x = transform.position.x + (float)(randomRadius * Math.Sin(randomAngle));
         float z = transform.position.z + (float)(randomRadius * Math.Cos(randomAngle));
+        float y = 0;
 
-        _targetPosition = new Vector3(x, _maxHeight, z);
+        _targetPosition = new Vector3(x, y, z);
         StartMoving();
     }
     public void StartMoving()
@@ -53,7 +54,7 @@ public class CoinProjectile : MonoBehaviour
             float x = Mathf.Lerp(a.x, b.x, t);
 
             float yInterpolant = _moveCurve.Evaluate(t);
-            float y = Mathf.LerpUnclamped(a.y, b.y, yInterpolant);
+            float y = Mathf.LerpUnclamped(a.y, _maxHeight, yInterpolant);
 
             float z = Mathf.Lerp(a.z, b.z, t);
 
@@ -61,5 +62,6 @@ public class CoinProjectile : MonoBehaviour
             transform.position = position;
             yield return null;
         }
+        transform.position = _targetPosition;
     }
 }

@@ -24,7 +24,6 @@ public class Interaction : MonoBehaviour
                     }
                     if (hit.collider.TryGetComponent(out CoinProjectile coin))
                     {
-                        Debug.Log(123);
                         coin.Hit();
                     }
                 }
