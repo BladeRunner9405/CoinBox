@@ -11,6 +11,6 @@ public class SubmitText : MonoBehaviour
 
     public void Submit()
     {
-        _textName.SetText(_inputName.text);
+        //_textName.SetText(_inputName.text);
     }
 }

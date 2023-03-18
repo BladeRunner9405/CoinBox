@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8877461296557648652}
   - component: {fileID: 1188433120235441881}
   - component: {fileID: 960427003890753841}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: HitEffect
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -80,7 +80,7 @@ GameObject:
   - component: {fileID: 4673003822097644013}
   - component: {fileID: 3596243997070087851}
   - component: {fileID: 2046952704895913362}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -180,7 +180,7 @@ GameObject:
   - component: {fileID: 26869927627476874}
   - component: {fileID: 1363628690417728880}
   - component: {fileID: 5365408129534187679}
-  m_Layer: 0
+  m_Layer: 6
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}

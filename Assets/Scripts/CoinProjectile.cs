@@ -15,14 +15,24 @@ public class CoinProjectile : MonoBehaviour
     [SerializeField] private float _maxHeight;
     [SerializeField] private Resources _resources;
     [SerializeField] private HitEffect _hitEffectPrefab;
+    [SerializeField] private float _modelSize;
 
     public int coinsAmount;
+
+    
 
     private Vector3 _targetPosition;
     private void Start()
     {
         _resources = Singleton.Instance.Resources;
-        
+
+        GenerateEndPosition();
+
+        StartMoving();
+    }
+
+    private void GenerateEndPosition()
+    {
         float randomRadius = _minRadius + UnityEngine.Random.value * (_maxRadius - _minRadius);
         float randomAngle = UnityEngine.Random.value * 360f;
 
@@ -31,7 +41,15 @@ public class CoinProjectile : MonoBehaviour
         float y = 0;
 
         _targetPosition = new Vector3(x, y, z);
-        StartMoving();
+        Vector3 screenPos = _resources.camera.WorldToViewportPoint(_targetPosition - new Vector3(_modelSize, _modelSize, _modelSize));
+        if (screenPos.x < 0 || screenPos.x > 1 || screenPos.y < 0 || screenPos.y > 1)
+        {
+            GenerateEndPosition();
+        }
+        else
+        {
+            _targetPosition = new Vector3(x, y, z);
+        }
     }
     public void StartMoving()
     {

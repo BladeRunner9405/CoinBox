@@ -6,7 +6,7 @@ using static UnityEngine.Rendering.DebugUI;
 
 public class Resources : MonoBehaviour
 {
-
+    public Camera camera;
     public int Coins { get; private set; }
     [SerializeField] private UICounter _counter;
 
@@ -42,6 +42,4 @@ public class Resources : MonoBehaviour
             return false;
         }
     }
-
-
 }
