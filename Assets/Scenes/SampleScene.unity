@@ -1025,7 +1025,7 @@ Camera:
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
-    m_Bits: 55
+    m_Bits: 183
   m_RenderingPath: -1
   m_TargetTexture: {fileID: 0}
   m_TargetDisplay: 0
@@ -1388,6 +1388,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 330585545}
+  _deadZone:
+    serializedVersion: 2
+    m_Bits: 128
 --- !u!4 &382423299
 Transform:
   m_ObjectHideFlags: 0
@@ -1808,6 +1811,65 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 417844933}
   m_CullTransparentMesh: 1
+--- !u!1 &432186342
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 432186343}
+  - component: {fileID: 432186344}
+  - component: {fileID: 432186345}
+  m_Layer: 8
+  m_Name: DeadZone
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &432186343
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432186342}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 1.25, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1643052029}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &432186344
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432186342}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ddc9b252e2acbe649881f773229e98ca, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!136 &432186345
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 432186342}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_Enabled: 1
+  m_Radius: 1.5
+  m_Height: 2.5
+  m_Direction: 1
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &460068553
 GameObject:
   m_ObjectHideFlags: 0
@@ -1918,7 +1980,7 @@ GameObject:
   - component: {fileID: 488233301}
   - component: {fileID: 488233303}
   - component: {fileID: 488233304}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Model
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2885,7 +2947,7 @@ GameObject:
   - component: {fileID: 857433406}
   - component: {fileID: 857433409}
   - component: {fileID: 857433408}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cube
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3149,7 +3211,7 @@ GameObject:
   - component: {fileID: 934715696}
   - component: {fileID: 934715699}
   - component: {fileID: 934715698}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Cylinder
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4987,7 +5049,7 @@ GameObject:
   - component: {fileID: 1367440546}
   - component: {fileID: 1367440547}
   - component: {fileID: 1367440548}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Clickable
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5028,17 +5090,26 @@ MonoBehaviour:
     - serializedVersion: 3
       time: 0
       value: 1
-      inSlope: -0.73904675
-      outSlope: -0.73904675
+      inSlope: 0.13169359
+      outSlope: 0.13169359
       tangentMode: 34
       weightedMode: 0
       inWeight: 0
       outWeight: 0.33333334
     - serializedVersion: 3
+      time: 0.049739037
+      value: 1.0065503
+      inSlope: -0.44500917
+      outSlope: -0.44500917
+      tangentMode: 34
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
       time: 0.20295839
       value: 0.85000426
-      inSlope: -0.077072084
-      outSlope: -0.077072084
+      inSlope: -0.21840468
+      outSlope: -0.21840468
       tangentMode: 34
       weightedMode: 0
       inWeight: 0.33333334
@@ -5327,7 +5398,7 @@ GameObject:
   - component: {fileID: 1607804317}
   - component: {fileID: 1607804320}
   - component: {fileID: 1607804319}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Sphere
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -5794,6 +5865,7 @@ Transform:
   m_Children:
   - {fileID: 177978037}
   - {fileID: 1367440546}
+  - {fileID: 432186343}
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}

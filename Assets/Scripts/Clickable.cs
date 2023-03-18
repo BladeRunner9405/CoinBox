@@ -27,8 +27,11 @@ public class Clickable : MonoBehaviour
     // Метод вызывается из Interaction при клике на объект
     public void Hit()
     {
-        CoinProjectile projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity, _projectilesParent);
+        for (int i = 0; i < 10; i++)
+        {
+            CoinProjectile projectile = Instantiate(_projectilePrefab, transform.position, Quaternion.identity, _projectilesParent);
         StartCoroutine(HitAnimation());
+        }
     }
 
     // Анимация колебания куба

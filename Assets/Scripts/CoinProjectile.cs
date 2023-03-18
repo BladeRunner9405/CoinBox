@@ -42,9 +42,20 @@ public class CoinProjectile : MonoBehaviour
 
         _targetPosition = new Vector3(x, y, z);
         Vector3 screenPos = _resources.camera.WorldToViewportPoint(_targetPosition - new Vector3(_modelSize, _modelSize, _modelSize));
+
+        Ray ray = new Ray(_targetPosition, _resources.camera.transform.position);
+        if (Physics.Raycast(ray, out RaycastHit hit))
+        {
+            if (hit.collider.TryGetComponent(out DeadZone deadZone)){
+                GenerateEndPosition();
+                return;
+            }
+        }
+
         if (screenPos.x < 0 || screenPos.x > 1 || screenPos.y < 0 || screenPos.y > 1)
         {
             GenerateEndPosition();
+            return;
         }
         else
         {

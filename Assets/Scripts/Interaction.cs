@@ -6,6 +6,7 @@ public class Interaction : MonoBehaviour
 {
 
     [SerializeField] private Camera _camera;
+    [SerializeField] private LayerMask _deadZone;
 
     private bool _canClick = true;
 
@@ -16,7 +17,7 @@ public class Interaction : MonoBehaviour
             if (Input.GetMouseButtonDown(0))
             {
                 Ray ray = _camera.ScreenPointToRay(Input.mousePosition);
-                if (Physics.Raycast(ray, out RaycastHit hit))
+                if (Physics.Raycast(ray, out RaycastHit hit, Mathf.Infinity, _deadZone))
                 {
                     if (hit.collider.TryGetComponent(out Clickable clickable))
                     {
